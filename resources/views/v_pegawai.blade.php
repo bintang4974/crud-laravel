@@ -5,7 +5,7 @@
     <a href="/add" class="btn btn-primary btn-sm mb-4"><i class="fas fa-plus"></i> Add</a>
 
     @if (session('pesan'))
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-success" role="alert">
             {{ session('pesan') }}
         </div>
     @endif
@@ -30,8 +30,8 @@
                     <td>{{ $item->pegawai_jabatan }}</td>
                     <td>{{ $item->pegawai_umur }}</td>
                     <td>{{ $item->pegawai_alamat }}</td>
-                    <td width="20px"><a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a></td>
-                    <td width="20px"><a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a></td>
+                    <td width="20px"><a href="/delete/{{ $item->pegawai_id }}" onclick="return confirm('Apakah yakin menghapus data ini?')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a></td>
+                    <td width="20px"><a href="/edit/{{ $item->pegawai_id }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

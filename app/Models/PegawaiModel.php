@@ -13,8 +13,23 @@ class PegawaiModel extends Model
         return DB::table('pegawai')->get();
     }
 
+    public function detailData($id_pegawai)
+    {
+        return DB::table('pegawai')->where('pegawai_id', $id_pegawai)->first();
+    }
+
     public function addData($data)
     {
         return DB::table('pegawai')->insert($data);
+    }
+
+    public function editData($id_pegawai, $data)
+    {
+        return DB::table('pegawai')->where('pegawai_id', $id_pegawai)->update($data);
+    }
+
+    public function deleteData($id_pegawai)
+    {
+        return DB::table('pegawai')->where('pegawai_id', $id_pegawai)->delete();
     }
 }
