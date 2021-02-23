@@ -11,6 +11,7 @@ class PegawaiController extends Controller
     public function __construct()
     {
         $this->PegawaiModel = new PegawaiModel();
+        $this->middleware('auth');
     }
     
     public function index()

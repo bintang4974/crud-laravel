@@ -14,9 +14,14 @@ use App\Http\Controllers\PegawaiController;
 |
 */
 
-Route::get('/', [PegawaiController::class, 'index'])->name('pegawai');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
 Route::get('/add', [PegawaiController::class, 'add']);
 Route::post('/insert', [PegawaiController::class, 'insert']);
 Route::get('/edit/{id_pegawai}', [PegawaiController::class, 'edit']);
 Route::post('/update/{id_pegawai}', [PegawaiController::class, 'update']);
 Route::get('/delete/{id_pegawai}', [PegawaiController::class, 'delete']);
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -51,6 +51,10 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-sign-out"></i> Logout</button>
+                </form>
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -180,6 +184,12 @@
                         <li class="nav-item has-treeview">
                             <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/pegawai" class="nav-link {{ request()->is('pegawai') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>Pegawai</p>
                             </a>
                         </li>
